@@ -1,0 +1,130 @@
+I0Z
+
+
+
+
+
+
+PH01FACTURA
+PH02fActura
+PH03F a c t u r a
+PH04f a c t u r a
+PH91FACTURA
+PH92fActura
+PH93F a c t u r a
+PH94f a c t u r a
+
+i01FACTURA
+i02Factura
+i03F A C T U R A
+i04 Factura
+@Palabras Prohibidas
+@FACTURA
+@Factura
+@F A C T U R A
+@ Factura
+ 000001000000001000Producto Exento
+i01FACTURA
+i02Factura
+i03F A C T U R A
+i04 Factura
+101
+
+
+800
+i01FACTURA
+i02Factura
+i03F A C T U R A
+i04 Factura
+800FACTURA
+800Factura
+800F A C T U R A
+800 Factura
+810
+
+I0Z
+PH01
+PH02
+PH03
+PH04
+PH05
+PH06
+PH07
+PH08
+PH91
+PH92
+PH93
+PH94
+PH95
+PH96
+PH97
+PH98
+
+I0Z
+
+
+
+
+
+
+PH01TOTAL
+PH02Total
+PH03T o t a l
+PH04T 0 t a l
+PH05T0tal
+PH91TOTAL
+PH92Total
+PH93T o t a l
+PH94T 0 t a l
+PH95T0tal
+
+i01TOTAL
+i02Total
+i03T o t a l
+i04T 0 t a l
+i05T0tal
+@Palabras Prohibidas
+@TOTAL
+@Total
+@T o t a l
+@T 0 t a l
+@T0tal
+ 000001000000001000Producto Exento
+i01TOTAL
+i02Total
+i03T o t a l
+i04T 0 t a l
+i05T0tal
+101
+
+
+800
+i01TOTAL
+i02Total
+i03T o t a l
+i04T 0 t a l
+i05T0tal
+800TOTAL
+800Total
+800T o t a l
+800T 0 t a l
+800T0tal
+810
+
+I0Z
+PH01
+PH02
+PH03
+PH04
+PH05
+PH06
+PH07
+PH08
+PH91
+PH92
+PH93
+PH94
+PH95
+PH96
+PH97
+PH98

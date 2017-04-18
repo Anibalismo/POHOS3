@@ -1,0 +1,127 @@
+810ND IVA EXC
+
+PJ0202
+I0Z
+
+
+
+
+
+
+
+PT112001080012200
+Pt
+
+810Prueba de tasas excluidas del monto.
+
+
+iS*Aníbal Montaño
+iR*17.534.670
+iF*0000317 
+iI*z6B1234567
+iD*10-02-2014
+i01NC BASE
+i02El resultado debe ser Bs. 442,00
+i03IVA G:12,00 R:08,00 A:22,00
+`0000001000000001000Producto Exento
+`1000001000000001000Producto Tasa 1
+`2000001000000001000Producto Tasa 2
+`3000001000000001000Producto Tasa 3
+101
+
+
+iS*Aníbal Montaño
+iR*17.534.670
+iF*0000317 
+iI*z6B1234567
+iD*10-02-2014
+i01NC BASE +Bs. 100,00
+i02Resultado: 509,93
+i03Precios E:89,29 R:92,6 A: 81,97
+i04BI: G113,83 R118,04 A104,5
+i05IVA G:13,66 R:9,44 A:22,99
+`0000001000000001000Producto Exento
+`1000001000000001000Producto Tasa 1
+`2000001000000001000Producto Tasa 2
+`3000001000000001000Producto Tasa 3
+3
+q+000010000
+101
+
+
+iS*Aníbal Montaño
+iR*17.534.670
+iF*0000317 
+iI*z6B1234567
+iD*10-02-2014
+i01NC BASE -Bs. 100,00
+i02BI: G64,75 R67,14 A59,44
+i03IVA G:7,77 R:5,37 A:13,08
+i04Resultado: 290,08
+`0000001000000001000Producto Exento
+`1000001000000001000Producto Tasa 1
+`2000001000000001000Producto Tasa 2
+`3000001000000001000Producto Tasa 3
+3
+q-000010000
+101
+
+
+iS*Aníbal Montaño
+iR*17.534.670
+iF*0000317 
+iI*z6B1234567
+iD*10-02-2014
+i01NC BASE -27,48%
+i02Resultado: 290,08
+i04BI: G64,75 R67,15 A59,44
+i05IVA G:7,77 R:5,37 A:13,08
+`0000001000000001000Producto Exento
+`1000001000000001000Producto Tasa 1
+`2000001000000001000Producto Tasa 2
+`3000001000000001000Producto Tasa 3
+3
+p+2500
+101
+
+
+iS*Aníbal Montaño
+iR*17.534.670
+iF*0000317 
+iI*z6B1234567
+iD*10-02-2014
+i01NC BASE +27,48%
+i02Resultado: 509,93
+i03Precios E:89,29 R:92,6 A: 81,97
+i04BI: G113,83 R118,04 A104,5
+i05IVA G:13,66 R:9,44 A:22,99
+`0000001000000001000Producto Exento
+`1000001000000001000Producto Tasa 1
+`2000001000000001000Producto Tasa 2
+`3000001000000001000Producto Tasa 3
+3
+p-2500
+101
+
+
+800El efectivo en caja debe ser de 2210.0Bs
+800En VENTAS Las bases imponibles debe ser todas 500,00
+800Los impuestos deben ser iguales a (si 12, 8, 22)
+80060,00 40,00 y 110 Bs.
+800El total de venta debe ser 2000,00 y el iva 210,00
+800Seccion DESCUENTOS
+800Las bases imponibles en los descuentos deben ser
+800todas de -50,00. y los impuestos deben ser
+80012%: -6.0Bs, 8%: -4Bs, 22%: -11.0Bs
+800El total de descuentos debe ser -200.0Bs y el
+800impuesto total al descuento -21.0Bs
+800Seccion RECARGOS
+800Las bases imponibles en los recargos deben ser
+800todas de 50,00. y los impuestos deben ser
+80012%: 6.0Bs, 8%: 4Bs, 22%: 11.0Bs
+800El total de recargos debe ser 200.0Bs y el
+800impuesto total al recargo 21.0Bs
+810
+
+
+I0Z

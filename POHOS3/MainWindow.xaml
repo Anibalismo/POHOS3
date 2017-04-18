@@ -1,0 +1,282 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:POHOS3"
+        xmlns:Controles="clr-namespace:POHOS3.Resources.Controles" x:Class="POHOS3.MainWindow"
+        Title="MainWindow" Height="557.155" Width="682.627">
+    <Window.Resources>
+        <Style x:Key="ButtonFocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="Local_TextBox" TargetType="{x:Type TextBoxBase}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBoxBase}">
+                        <Border x:Name="Border" Background="{TemplateBinding Background}">
+                            <ScrollViewer x:Name="PART_ContentHost" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="MetroButton" TargetType="{x:Type Button}">
+            <Setter Property="local:Attached.Archivo" Value="Hola"/>
+            <Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
+            <Setter Property="Background" Value="#EEEEEEEE"/>
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="Height" Value="60"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="11" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <!-- <Setter Property="OpacityMask" Value="#222222FF"/> Creo que es mucho esto -->
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Border x:Name="Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" />
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="OpacityMask" Value="#AA888888"/>
+                                <Setter Property="Margin" Value="2 1" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="BorderThickness" Value="0"/>
+                                <Setter Property="OpacityMask" Value="#FFFFFFFF"/>
+                                <!--<Setter Property="Background" Value="DimGray"/>-->
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="#ADADAD"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
+
+    <DockPanel>
+        <Menu x:Name="MainMenu1" DockPanel.Dock="Top" HorizontalAlignment="Stretch" Height="24" IsMainMenu="True">
+
+            <MenuItem Header="_Pruebas" Click="MenuItem_Click" Visibility="Visible">
+                <MenuItem Header="_Acumuladores">
+                    <MenuItem Header="Factura Iva Exc" Click="Montos_Click" />
+                    <MenuItem Header="Factura Iva Inc" Click="Montos_Click" />
+                    <MenuItem Header="NC Iva Exc" Click="Montos_Click" />
+                    <MenuItem Header="NC Iva Inc" Click="Montos_Click" />
+                    <MenuItem Header="ND Iva Exc" Click="Montos_Click" />
+                    <MenuItem Header="ND Iva Inc" Click="Montos_Click" />
+                </MenuItem>
+                <MenuItem Header="_Pruebas" Click="MenuItem_Click"/>
+                <MenuItem Header="_Montos Máximos">
+                    <MenuItem Header="9.999.999,99" Click="Montos_Click" />
+                    <MenuItem Header="99.999.999,99" Click="Montos_Click" />
+                    <MenuItem Header="999.999.999,99" Click="Montos_Click" />
+                    <MenuItem Header="9.999.999.999,99" Click="Montos_Click" />
+                </MenuItem>
+                <MenuItem Header="_Caracteres">
+                    <MenuItem Header="Caracteres por Descriptor" Click="Montos_Click" />
+                    <MenuItem Header="áéíóúÑ y esas cosas" Click="Montos_Click" />
+                    <MenuItem Header="Palabras Prohibidas" Click="Montos_Click" />
+                </MenuItem>
+                <MenuItem Header="_Descriptores">
+                    <MenuItem Header="Descriptores Z" Click="Montos_Click" />
+                </MenuItem>
+                <MenuItem Header="_Programación">
+                    <MenuItem Header="Cajeros" Click="Montos_Click" />
+                    <MenuItem Header="Encabezados" Click="Montos_Click" />
+                    <MenuItem Header="Medios de Pago" Click="Montos_Click" />
+                </MenuItem>
+                <MenuItem Header="_Corte de Energía" Click="Montos_Click" />
+                <MenuItem Header="_Programación">
+                    <MenuItem Header="Cajeros" Click="Montos_Click" />
+                    <MenuItem Header="Encabezados" Click="Montos_Click" />
+                    <MenuItem Header="Medios de Pago" Click="Montos_Click" />
+                </MenuItem>
+
+                <MenuItem Header="_Cambios de Tasa" Click="Montos_Click"/>
+            </MenuItem>
+
+        </Menu>
+
+        <StatusBar Height="24" DockPanel.Dock="Bottom">
+            <StatusBar.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="100" />
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </ItemsPanelTemplate>
+            </StatusBar.ItemsPanel>
+
+            <StatusBarItem Height="24" VerticalAlignment="Bottom" >
+                <TextBlock x:Name="lblCursorPosition" />
+            </StatusBarItem>
+
+            <Separator Grid.Column="1" />
+
+            <StatusBarItem Grid.Column="2">
+                <TextBlock x:Name="nombreArchivoStatusBar" Text="" />
+            </StatusBarItem>
+
+            <Separator Grid.Column="3" />
+
+            <StatusBarItem Grid.Column="4">
+                <ProgressBar x:Name="ProgressBar1" Value="0" Width="90" Height="16" />
+            </StatusBarItem>
+
+        </StatusBar>
+
+        <TabControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+            <TabItem Header="Pruebas" Height="22" VerticalAlignment="Top" Margin="0,0,-4,0">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Background="Green" Style="{StaticResource MetroButton}" x:Name="btnPruebas" Margin="296,280,63,109" HorizontalAlignment="Center" VerticalAlignment="Center" Height="Auto" Width="Auto" Click="btnPruebas_Click" Grid.Column="1" >
+                        <TextBlock TextWrapping="Wrap" Text="INICIO" FontSize="40" FontFamily="Calibri" FontWeight="Bold"/>
+                    </Button>
+                    <Label x:Name="label" Content="Pruebas" HorizontalAlignment="Left" Margin="36,44,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                    <CheckBox x:Name="checkBox_ZMitadDia" Content="Reporte Z a mitad del día" HorizontalAlignment="Left" Margin="53,280,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                    <CheckBox x:Name="checkBox_StatusS2Factura" Content="Consultas de estatus S2 entre factura." HorizontalAlignment="Left" Margin="53,260,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="textBox_NDC" HorizontalAlignment="Left" Height="38" Margin="217,143,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="120" TextAlignment="Center" FontSize="21.333" FontWeight="Bold"/>
+                    <TextBox DataObject.Pasting="PastingHandler" x:Name="textBox_Facturas" HorizontalAlignment="Left" Height="38" Margin="53,143,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="121" PreviewTextInput="textBox_Facturas_PreviewTextInput" TextAlignment="Center" FontSize="21.333" FontWeight="Bold"/>
+                    <TextBox x:Name="textBox_NDD" HorizontalAlignment="Left" Height="38" Margin="388,143,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="120" TextAlignment="Center" FontSize="21.333" FontWeight="Bold"/>
+                    <Button Background="Blue" Style="{StaticResource MetroButton}" x:Name="btnGenerarScript" Margin="359,367,64,53" HorizontalAlignment="Center" VerticalAlignment="Center" Height="Auto" Width="Auto" Click="btnGenerarScript_Click" Grid.Column="1" >
+                        <TextBlock TextWrapping="Wrap" Text="Generar" FontSize="15" FontFamily="Calibri" FontWeight="Bold"/>
+                    </Button>
+                    <CheckBox x:Name="checkBox_ZMitadDia_Copy" Content="Pruebas continuas" HorizontalAlignment="Left" Margin="53,300,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                    <CheckBox x:Name="checkBox_ZMitadDia_Copy1" Content="Incrementar día al finalizar un ciclo" HorizontalAlignment="Left" Margin="53,320,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                    <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="56,122,0,0" TextWrapping="Wrap" Text="Cantidad de facturas" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="217,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="91" TextAlignment="Center"><Run Text="Cantidad de "/><Run Text="Notas de crédito"/></TextBlock>
+                    <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="388,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="90" TextAlignment="Center"><Run Text="Cantidad de "/><Run Text="Notas de "/><Run Text="Débito"/></TextBlock>
+                    <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="462,335,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+                    <TextBox DataObject.Pasting="PastingHandler" x:Name="textBox_Facturas_Copy" HorizontalAlignment="Left" Height="31" Margin="53,343,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="35" PreviewTextInput="textBox_Facturas_PreviewTextInput" TextAlignment="Center" FontSize="21.333" FontWeight="Bold"/>
+                    <TextBlock x:Name="textBlock_Copy2" HorizontalAlignment="Left" Margin="98,354,0,0" TextWrapping="Wrap" Text="Minutos de retardo entre facturas" VerticalAlignment="Top"/>
+
+                </Grid>
+
+
+
+            </TabItem>
+            <TabItem Header="*" Height="22" VerticalAlignment="Top" Margin="3,0,-7,0">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="21"/>
+                        <ColumnDefinition Width="45*"/>
+                        <ColumnDefinition Width="250*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="316*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="0"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox KeyboardNavigation.TabIndex="0" x:Name="TextBox1" Grid.Column="0" VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" Text="TextBox" AcceptsReturn="True" Background="#FF0F0B11" Foreground="White" FontSize="14" PreviewKeyDown="TextBox1_PreviewKeyDown" SelectionChanged="TextBox1_SelectionChanged" FontFamily="Segoe UI Mono" Grid.ColumnSpan="3"/>
+                    <Button Background="Red"    Style="{StaticResource MetroButton}" x:Name="Button_Abrir"                     Margin="0,0,25,332"    Click="Button_Abrir_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="60" Grid.Column="2" >
+                        <TextBlock TextWrapping="Wrap"><Run Text="Abrir Archivo"/></TextBlock>
+                    </Button>
+                    <Button KeyboardNavigation.TabIndex="2" Background="Green"  Style="{StaticResource MetroButton}" x:Name="Button_Stop"    Content="Detener" Margin="0,0,25,137"   Click="Button_Stop_Click" Grid.Column="2" />
+                    <Button KeyboardNavigation.TabIndex="1" Background="Blue" Style="{StaticResource MetroButton}" x:Name="Button_Send"    Content="Enviar"  Margin="0,0,25,10"    Click="Button_Enviar_Click" Grid.Column="2" />
+                    <Button KeyboardNavigation.TabIndex="2" Background="Orange" Style="{StaticResource MetroButton}" x:Name="Button_Guardar" Content="Guardar" Margin="0,0,25,202"   Click="Button_Guardar_Click" Grid.Column="2" />
+                    <Button KeyboardNavigation.TabIndex="2" Background="Purple" Style="{StaticResource MetroButton}" x:Name="Button_Repetir" Margin="0,0,25,267" Click="Button_Repetir_Click" Width="100" Grid.Column="2">
+                        <TextBlock Text="" TextWrapping="Wrap"/>
+                    </Button>
+                    <GridSplitter KeyboardNavigation.IsTabStop="False" HorizontalAlignment="Right" VerticalAlignment="Stretch" Grid.Column="3" ResizeBehavior="PreviousAndNext" Width="5" Background="#FFBCBCBC"/>
+                    <TextBox KeyboardNavigation.TabIndex="2" HorizontalAlignment="Stretch" IsManipulationEnabled="False" x:Name="TextBox2"  Grid.Column="4" VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" Background="#FF0F0B11" Foreground="White" FontSize="14"/>
+                    <GridSplitter KeyboardNavigation.IsTabStop="False" HorizontalAlignment="Right" VerticalAlignment="Stretch" Grid.Column="5" ResizeBehavior="PreviousAndNext" Width="5" Background="#FFBCBCBC"/>
+                    <Image x:Name="Image1" HorizontalAlignment="Stretch" IsManipulationEnabled="False" Grid.Column="6"/>
+                </Grid>
+            </TabItem>
+
+            <!--Pestaña de pruebas con el flag-->
+            <TabItem Header="Flags" Height="22" VerticalAlignment="Top" Margin="0,0,-4,0" HorizontalAlignment="Right" Width="43">
+                <ScrollViewer HorizontalScrollBarVisibility="Visible">
+                    <Grid x:Name="MyGrid" Width="649">
+                        <Grid.Resources>
+                            <Style TargetType="{x:Type Panel}">
+                                <Setter Property="Margin" Value="0,0,0,6" />
+                            </Style>
+                        </Grid.Resources>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70"/>
+                            <ColumnDefinition Width="4*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+
+                        <Button Grid.Column="0" Grid.Row="0" Style="{StaticResource MetroButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Button 5"/>
+                        <StackPanel Grid.Column="1" HorizontalAlignment="Left" Height="362" Margin="67,35,0,0" VerticalAlignment="Top" Width="360">
+                            <Controles:UserControl1 x:Name="controlUsuario1" />
+                            <Controles:UserControl1 x:Name="controlUsuario2"/>
+                            <Controles:UserControl1 x:Name="controlUsuario3"/>
+                        </StackPanel>
+
+                    </Grid>
+                </ScrollViewer>
+            </TabItem>
+
+
+            <TabItem Header="Flags" Visibility="Hidden">
+                <Button KeyboardNavigation.TabIndex="2" Background="Purple" Style="{StaticResource MetroButton}" x:Name="Flag0_Button" Content="Flag0" Click="Flag0_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,496,433"  />
+            </TabItem>
+            <TabItem Header="Pruebas de Montos" Visibility="Hidden">
+                <Grid Margin="30,26,27,38">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="23*"/>
+                        <ColumnDefinition Width="104*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid ItemsSource="{Binding Data}" x:Name="DataGrid1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="329" Width="312"/>
+                </Grid>
+
+            </TabItem>
+            <TabItem Header="Experimental" Visibility="Hidden">
+                <Grid Background="#FFE5E5E5">
+                    <RichTextBox x:Name="RichTextBox1" FontStretch="Condensed">
+                        <RichTextBox.Resources>
+                            <Style TargetType="{x:Type Paragraph}">
+                                <Setter Property="Margin" Value="0"/>
+                            </Style>
+                        </RichTextBox.Resources>
+                        <FlowDocument>
+                            <Paragraph FontStretch="Normal">
+                                <Run Foreground="#FF70EE6A" Text="RichTextBox"/>
+                                <Run Text=" "/>
+                                <Run Text=" "/>
+                                <Run Text=" "/>
+                                <Run Foreground="#FFE40F0F" Text="RichTextBox"/>
+                            </Paragraph>
+                        </FlowDocument>
+                    </RichTextBox>
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+    </DockPanel>
+</Window>
+
+<!--                <Button Background="Purple" Style="{StaticResource MetroButton}" x:Name="Button_Pruebas_Montos"   Content="Montos" Click="Button_Pruebas_Montos_Click" Margin="0,0,534,348"  />
+-->

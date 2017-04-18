@@ -1,0 +1,96 @@
+810IVA INCLUIDO
+
+
+PJ0202
+I0Z
+
+
+
+
+
+
+
+
+
+PT212002080022200
+Pt
+
+i01FACTURA BASE
+i02El resultado debe ser Bs. 442,00
+i03IVA G:12,00 R:08,00 A:22,00
+ 000001000000001000Producto Exento
+!000001120000001000Producto Tasa 1
+"000001080000001000Producto Tasa 2
+#000001220000001000Producto Tasa 3
+101
+
+
+i01REGISTRO BASE +Bs. 100,00
+i02Resultado: 552,50
+i03IVA G:15,00 R:10,00 A:27,5
+ 000001000000001000Producto Exento
+!000001120000001000Producto Tasa 1
+"000001080000001000Producto Tasa 2
+#000001220000001000Producto Tasa 3
+3
+q+000010000
+101
+
+
+i01REGISTRO BASE -Bs. 100,00
+i02Resultado: 331,50
+i03IVA G:9,00 R:6,00 A:16,5
+ 000001000000001000Producto Exento
+!000001120000001000Producto Tasa 1
+"000001080000001000Producto Tasa 2
+#000001220000001000Producto Tasa 3
+3
+q-000010000
+101
+
+
+i01REGISTRO BASE +25,00%
+i02Resultado: 552,5
+i03IVA G:15,00 R:10,00 A:27,5
+ 000001000000001000Producto Exento
+!000001120000001000Producto Tasa 1
+"000001080000001000Producto Tasa 2
+#000001220000001000Producto Tasa 3
+3
+p+2500
+101
+
+
+i01REGISTRO BASE -25,00%
+i02Resultado: 331,50
+i03IVA G:9,00 R:6,00 A:16,5
+ 000001000000001000Producto Exento
+!000001120000001000Producto Tasa 1
+"000001080000001000Producto Tasa 2
+#000001220000001000Producto Tasa 3
+3
+p-2500
+101
+
+
+800El efectivo en caja debe ser de 2210.0Bs
+800En VENTAS Las bases imponibles debe ser todas 500,00
+800Los impuestos deben ser iguales a (si 12, 8, 22)
+80060,00 40,00 y 110 Bs.
+800El total de venta debe ser 2000,00 y el iva 210,00
+800Seccion DESCUENTOS
+800Las bases imponibles en los descuentos deben ser
+800todas de -50,00. y los impuestos deben ser
+80012%: -6.0Bs, 8%: -4Bs, 22%: -11.0Bs
+800El total de descuentos debe ser -200.0Bs y el
+800impuesto total al descuento -21.0Bs
+800Seccion RECARGOS
+800Las bases imponibles en los recargos deben ser
+800todas de 50,00. y los impuestos deben ser
+80012%: 6.0Bs, 8%: 4Bs, 22%: 11.0Bs
+800El total de recargos debe ser 200.0Bs y el
+800impuesto total al recargo 21.0Bs
+810
+
+
+I0Z
